@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose Day | For Surabhi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-lavender: #f8f0fb;
+            --deep-purple: #7b2cbf;
+            --soft-pink: #ff85a1;
+        }
+
+        body {
+            background-color: var(--bg-lavender);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+            color: #444;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--deep-purple);
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Video Styling with Faded Border Effect */
+        .video-wrapper {
+            position: relative;
+            margin: 20px auto;
+            border-radius: 30px;
+            overflow: hidden;
+            /* This creates the soft/faded glow around the video */
+            box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.8) inset, 
+                        0 10px 30px rgba(123, 44, 191, 0.2);
+            background: white;
+            padding: 10px;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            /* This blurs the very edges of the video slightly */
+            mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0) 100%);
+        }
+
+        .no-pressure {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--deep-purple);
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .promises-box {
+            background: white;
+            margin-top: 40px;
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--soft-pink);
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .promises-box h3 {
+            margin-top: 0;
+            color: var(--soft-pink);
+        }
+
+        .heart-btn {
+            background: none;
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .back-link {
+            margin-top: 40px;
+            display: block;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Question for You...</h1>
+
+        <div class="video-wrapper">
+            <video controls poster="../assets/images/video-placeholder.jpg">
+                <source src="../assets/video/propose-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p class="no-pressure">"As always, no pressure at all, take your time!"</p>
+
+        <div class="promises-box">
+            <h3>My Commitment to Us:</h3>
+            <ul style="list-style: '✨ '; line-height: 2;">
+                <li>To listen even when you don't speak.</li>
+                <li>To be your biggest cheerleader.</li>
+                <li>To bridge the distance, one day at a time.</li>
+                <li>To always choose us.</li>
+            </ul>
+        </div>
+
+        <button class="heart-btn" onclick="celebrate()">💖</button>
+        <p style="font-size: 0.8rem; color: #aaa;">(Click the heart when you're ready)</p>
+
+        <a href="../index.html" class="back-link">← Back to our journey</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function celebrate() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#7b2cbf', '#ff85a1', '#ff0a54']
+            });
+        }
+    </script>
+</body>
+</html>

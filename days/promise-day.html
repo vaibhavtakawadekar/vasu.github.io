@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Day | Our Sacred Vows</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #fce4ec;
+            --deep-rose: #d81b60;
+            --glass: rgba(255, 255, 255, 0.75);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Full Background Image */
+        .bg-container {
+            background-image: url('../assets/images/promise-bg.png');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .promise-card {
+            background: var(--glass);
+            backdrop-filter: blur(0.05px);
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            animation: slideUp 1.2s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--deep-rose);
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .marathi-vow {
+            font-size: 1.1rem;
+            color: #4a148c;
+            font-weight: 600;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .intro-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .promise-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .promise-item {
+            background: rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--deep-rose);
+            font-size: 1rem;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .promise-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .closing-note {
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--deep-rose);
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover { color: var(--deep-rose); }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container">
+        <div class="promise-card">
+            <h1>Happy Promise Day</h1>
+            
+            <p class="marathi-vow">
+                प्लॅन तर हा आहे की लग्नाची ७ वचने घेऊ, पण ती समोरची गोष्ट झाली, सध्या तर तुम्ही फक्त डेटिंगसाठी रेडी व्हा त्यातच आभारी आहे मी.
+            </p>
+
+            <p class="intro-text">
+                "I know the man I become when I'm in love, and I know exactly what I feel for you. 
+                Even as we take our time, my heart is already committed. Here are my vows to you:"
+            </p>
+
+            <ul class="promise-list">
+                <li class="promise-item">✨ <strong>Safe Hands:</strong> I promise to protect you and cherish you—the only thing I'll ever "hit" is a new milestone with you. :P</li>
+                <li class="promise-item">✨ <strong>Transparency:</strong> I vow to be your most honest mirror and your most loyal partner, always.</li>
+                <li class="promise-item">✨ <strong>Presence:</strong> I promise I will never leave you stranded; I am the person you can always count on when the world gets loud.</li>
+                <li class="promise-item">✨ <strong>The Foodie Vow:</strong> I promise to finish every meal you cook with a smile, even if it makes me a bit 'mota' (but please have mercy on me!).</li>
+                <li class="promise-item">✨ <strong>The 'Goated' Effort:</strong> I'll never stop trying for you. I want our story to make even your parents feel like their romance has a serious competitor!</li>
+                <li class="promise-item">✨ <strong>Your Safe Space:</strong> When your thoughts haunt you, I promise to be the silence and the safety that brings you back to peace.</li>
+            </ul>
+
+            <p class="closing-note">
+                I mean every single word, Surabhi. All I ask is that you keep walking this path with me.
+            </p>
+
+            <a href="../index.html" class="back-link">← Back to our journey</a>
+        </div>
+    </div>
+
+</body>
+</html>

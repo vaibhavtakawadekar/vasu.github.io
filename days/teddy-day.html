@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Day | For My Flurball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teddy-brown: #8d5524;
+            --heart-pink: #ff85a1;
+            --glass-white: rgba(255, 255, 255, 0.85);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Full Background Image Setup */
+        .bg-image {
+            background-image: url('../assets/images/teddy-bg.png'); /* Ensure name matches your file */
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-box {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 2px solid white;
+            margin: 20px;
+            animation: bounceIn 1.5s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--teddy-brown);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .para {
+            color: #5d4037;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-amazon {
+            background-color: #232f3e; /* Amazon Navy */
+            color: #ff9900; /* Amazon Orange */
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            border: 2px solid #ff9900;
+        }
+
+        .btn-amazon:hover {
+            background-color: #ff9900;
+            color: #232f3e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: var(--heart-pink);
+            font-size: 1.5rem;
+            animation: fly 4s infinite ease-in;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: var(--teddy-brown);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-image">
+        <div class="content-box">
+            <h1>Happy Teddy Day, My Flurball!</h1>
+            
+            <p class="para">
+                I wish I was there right now to cuddle with my favorite teddy (that's you!). 
+                I really wanted to hand-deliver a chotu teddy for you to hold onto, but LDR truly sucks sometimes! 
+                <br><br>
+                Since I can't be there to give you a hug in person, here is a little friend you can get to keep you company until I'm back.
+            </p>
+
+            <a href="https://amzn.in/d/1PjwCBo" target="_blank" class="btn-amazon">
+                Adopt Your Teddy Bear 🧸
+            </a>
+
+            <a href="../index.html" class="back-link">← Return to the Calendar</a>
+        </div>
+    </div>
+
+    <script>
+        // Adding some floating hearts for the 'cute' factor
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('floating-heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 600);
+    </script>
+
+</body>
+</html>
