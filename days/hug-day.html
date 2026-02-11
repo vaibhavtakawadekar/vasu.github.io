@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hug Day | Sending You Warmth, Surabhi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Nunito:wght@300;400;600;700;800&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --warm-cream: #faf6f0;
+            --soft-peach: #ffdab9;
+            --coral: #ff8c69;
+            --warm-pink: #ffb6c1;
+            --deep-warm: #e2725b;
+            --coffee: #6f4e37;
+            --cozy-brown: #8b4513;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffdab9 30%, #ffefd5 70%, #fff8dc 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--coffee);
+            position: relative;
+        }
+
+        /* Floating Hug Elements Background */
+        .hug-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-hug {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: float-hug 10s ease-in-out infinite;
+        }
+
+        @keyframes float-hug {
+            0%, 100% { transform: translateY(100vh) opacity: 0; }
+            50% { opacity: 0.15; }
+            100% { transform: translateY(-100px) opacity: 0; }
+        }
+
+        /* Navigation */
+        .nav-floating {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--coffee);
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.15);
+            transition: all 0.3s;
+        }
+
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.15);
+            font-size: 1.5rem;
+            border: 2px solid var(--coral);
+        }
+
+        .music-control.playing {
+            animation: pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(255, 140, 105, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 140, 105, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 140, 105, 0); }
+        }
+
+        /* GIF Slideshow */
+        .gif-slideshow-container {
+            max-width: 400px;
+            margin: 40px auto 0;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: white;
+            border: 5px solid white;
+        }
+
+        .gif-slide {
+            display: none;
+            width: 100%;
+        }
+
+        .gif-slide.active {
+            display: block;
+            animation: fadeIn 0.8s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            color: var(--deep-warm);
+            margin-bottom: 10px;
+        }
+
+        /* Message Cards */
+        .message-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--coral);
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--deep-warm);
+            margin-bottom: 15px;
+        }
+
+        /* Types of Hugs Section */
+        .hug-types {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--deep-warm);
+            margin-bottom: 30px;
+        }
+
+        .hug-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .hug-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hug-item:hover {
+            transform: translateY(-5px);
+            background: var(--hug-yellow);
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        /* Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: none;
+        }
+
+        .hug-popup {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            z-index: 10000;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            display: none;
+        }
+
+        .btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffe4e1; z-index: 20000; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer;">
+        <div style="font-size: 5rem; margin-bottom: 20px; animation: gentle-bounce 2s infinite;">🎁</div>
+        <h2 style="font-family: 'Dancing Script', cursive; color: #e2725b; font-size: 2.5rem;">Click to open your Hug Day surprise!</h2>
+    </div>
+    
+    <audio id="bgMusic" loop>
+        <source src="../assets/music/hug.mp3" type="audio/mpeg">
+    </audio>
+    <div class="hug-particles" id="hugParticles"></div>
+
+    <div class="music-control playing" id="musicBtn" onclick="toggleMusic()">
+        🎶
+    </div>
+
+    <audio id="bgMusic" loop autoplay>
+        <source src="../assets/music/hug.mp3" type="audio/mpeg">
+    </audio>
+
+    <a href="../index.html" class="nav-floating">← Back</a>
+
+    <div class="main-container">
+        <section class="hero-section">
+            <h1 class="main-title">A Big Squeeze for You!</h1>
+            
+            <div class="gif-slideshow-container">
+                <div class="gif-slide active">
+                    <div class="tenor-gif-embed" data-postid="13886608" data-share-method="host" data-aspect-ratio="1.22667" data-width="100%"><a href="https://tenor.com/view/hugs-hugging-milk-and-mocha-hug-love-gif-13886608">Hugs Hugging Sticker</a></div>
+                </div>
+                <div class="gif-slide">
+                    <div class="tenor-gif-embed" data-postid="17186007" data-share-method="host" data-aspect-ratio="1.06667" data-width="100%"><a href="https://tenor.com/view/cute-bunny-rabbit-heart-hug-gif-17186007">Cute Bunny Rabbit Sticker</a></div>
+                </div>
+                <div class="gif-slide">
+                    <div class="tenor-gif-embed" data-postid="9761614668628461285" data-share-method="host" data-aspect-ratio="1.15789" data-width="100%"><a href="https://tenor.com/view/excited-gif-9761614668628461285">Excited GIF</a></div>
+                </div>
+            </div>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </section>
+
+        <div class="message-section">
+            <div class="message-card">
+                <span style="font-size: 3rem;">🫂</span>
+                <h3 class="card-title">Why Hugs Rule</h3>
+                <p>Did you know a 20-second hug basically fixes your whole mood? It's like a battery charger for your soul. Consider this me plugging you in for a full charge! 🔋</p>
+            </div>
+            <div class="message-card">
+                <span style="font-size: 3rem;">💝</span>
+                <h3 class="card-title">Better Than Words</h3>
+                <p>Sometimes I just don't know what to say, but a hug always gets the point across. It's my way of saying "I've got you" without making a sound.</p>
+            </div>
+            <div class="message-card">
+                <span style="font-size: 3rem;">🌟</span>
+                <h3 class="card-title">The "I Owe You"</h3>
+                <p>Since I can't be there to squeeze you for real right now, I'm just adding this to the tally. Fair warning: the first real-life hug is going to be incredibly long! ⏰</p>
+            </div>
+        </div>
+
+        <div class="hug-types">
+            <h2 class="section-title">Hugs I'm Saving For You</h2>
+            <div class="hug-grid">
+                <div class="hug-item" onclick="showHugDetail('bear')">
+                    <span>🐻</span><strong> Bear Hug</strong>
+                </div>
+                <div class="hug-item" onclick="showHugDetail('long')">
+                    <span>⏰</span><strong> The 5-Minute Hug</strong>
+                </div>
+                <div class="hug-item" onclick="showHugDetail('surprise')">
+                    <span>🎉</span><strong> Sneak Attack Hug</strong>
+                </div>
+                <div class="hug-item" onclick="showHugDetail('sleepy')">
+                    <span>😴</span><strong> Sleepy Cuddles</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-message">
+            <p style="font-family: 'Dancing Script', cursive; font-size: 2rem;">
+                If hugs were stars, I'd give you the entire sky. ✨
+            </p>
+            <button class="btn" onclick="showHugDetail('final')">Send Me a Virtual Hug back? 🤗</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+    <div class="hug-popup" id="hugPopup">
+        <h2 id="popupEmoji" style="font-size: 3rem;">🤗</h2>
+        <p id="popupText" style="font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin: 15px 0;"></p>
+        <button class="btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Slideshow Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gif-slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 3500);
+
+        // Music Logic
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        let isPlaying = false;
+
+        // The "Fix" for Autoplay: Click overlay to start
+        loadingOverlay.addEventListener('click', () => {
+            bgMusic.play().catch(e => console.log("Audio load error:", e));
+            isPlaying = true;
+            musicBtn.classList.add('playing');
+            loadingOverlay.style.display = 'none'; // Reveal the site
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.textContent = '🎵';
+                musicBtn.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicBtn.textContent = '🎶';
+                musicBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Popups
+        const details = {
+            bear: "The tightest squeeze ever. No breathing allowed until I say so!",
+            long: "The kind where we just stand there and forget the rest of the world exists.",
+            surprise: "I'll catch you when you're busy and just wrap my arms around you.",
+            sleepy: "Early morning or late night cuddles where we're both half-asleep.",
+            final: "The biggest, warmest, most heartfelt hug is headed your way right now! ❤️"
+        };
+
+        function showHugDetail(type) {
+            document.getElementById('popupText').textContent = details[type];
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('hugPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('hugPopup').style.display = 'none';
+        }
+
+        // Particles
+        const container = document.getElementById('hugParticles');
+        for (let i = 0; i < 15; i++) {
+            const h = document.createElement('div');
+            h.className = 'floating-hug';
+            h.textContent = ['🤗', '🫂', '💝', '❤️'][Math.floor(Math.random()*4)];
+            h.style.left = Math.random() * 100 + '%';
+            h.style.animationDelay = Math.random() * 10 + 's';
+            h.style.animationDuration = (5 + Math.random() * 5) + 's';
+            container.appendChild(h);
+        }
+    </script>
+</body>
+</html>
